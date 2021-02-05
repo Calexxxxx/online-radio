@@ -1,34 +1,24 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import {
+  createMuiTheme,
+  responsiveFontSizes,
+  ThemeProvider
+} from "@material-ui/core/styles"
+
+let theme = createMuiTheme({})
+theme = responsiveFontSizes(theme)
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
   return (
-    <>
-        <main>{children}</main>
-    </>
+    <ThemeProvider theme={ theme }>
+      <main>{ children }</main>
+    </ThemeProvider>
   )
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 export default Layout
