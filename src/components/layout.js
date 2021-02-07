@@ -7,7 +7,6 @@ import {
 } from "@material-ui/core/styles"
 import { Header } from "./Header"
 import CssBaseline from "@material-ui/core/CssBaseline"
-import { UpdateButton } from "./UpdateButton"
 
 let theme = createMuiTheme({
   palette: {
@@ -85,7 +84,6 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider theme={ theme }>
       <CssBaseline/>
-      <UpdateButton/>
       <Header/>
       <main>{ children }</main>
     </ThemeProvider>
