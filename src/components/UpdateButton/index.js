@@ -57,9 +57,10 @@ export const UpdateButton = () => {
       }
     })
 
-    navigator.serviceWorker.addEventListener("controllerchange", (event) => {
-      if ( event.refreshing ) return
-      event.refreshing = true
+    let refreshing
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if ( refreshing ) return
+      refreshing = true
       window.location.reload()
     })
   }
