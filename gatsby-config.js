@@ -70,7 +70,7 @@ module.exports = {
         background_color: `#1e7fab`,
         theme_color: `#1e7fab`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`
+        icon: `src/images/ors-logo.png`
       }
     },
     {
