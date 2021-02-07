@@ -79,8 +79,7 @@ const Podcast = ({ data }) => {
                     { podcastDescription }
                   </Typography>
                   <audio controls autoPlay
-                         className={ classes.audio }
-                         crossOrigin={ "anonymous" }>
+                         className={ classes.audio }>
                     <source
                       src={ podcastUrl }/>
                     <track default

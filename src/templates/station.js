@@ -191,8 +191,7 @@ const Station = ({ data }) => {
                     Country: { stationCountry.countryTitle }
                   </Typography>
                   <audio controls autoPlay
-                         className={ classes.audio }
-                         crossOrigin={ "anonymous" }>
+                         className={ classes.audio }>
                     <source src={ stationStreamUrl } type={ "audio/mpeg" }/>
                   </audio>
                 </CardContent>
