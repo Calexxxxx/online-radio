@@ -190,9 +190,9 @@ const Station = ({ data }) => {
                               component="p" gutterBottom>
                     Country: { stationCountry.countryTitle }
                   </Typography>
-                  <audio controls={ true } autoPlay={ true }
+                  <audio controls autoPlay
                          className={ classes.audio }
-                         preload={ "true" }>
+                         crossOrigin={ "anonymous" }>
                     <source src={ stationStreamUrl } type={ "audio/mpeg" }/>
                   </audio>
                 </CardContent>

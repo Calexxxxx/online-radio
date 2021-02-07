@@ -78,8 +78,9 @@ const Podcast = ({ data }) => {
                               component="p" gutterBottom>
                     { podcastDescription }
                   </Typography>
-                  <audio controls={ true } autoPlay={ true }
-                         className={ classes.audio }>
+                  <audio controls autoPlay
+                         className={ classes.audio }
+                         crossOrigin={ "anonymous" }>
                     <source
                       src={ podcastUrl }/>
                     <track default
