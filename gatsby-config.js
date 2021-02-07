@@ -102,6 +102,17 @@ module.exports = {
     },
     `gatsby-plugin-sitemap`,
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.REACT_APP_GOOGLE_ANALYTICS_ID,
+        head: false,
+        anonymize: true,
+        respectDNT: true,
+        defer: true,
+        cookieDomain: "https://onlineradiostreams.net"
+      }
+    },
+    {
       resolve: `gatsby-plugin-offline`,
       options: {
         appendScript: require.resolve(`./src/sw.js`),
