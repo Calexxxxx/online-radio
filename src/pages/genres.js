@@ -12,44 +12,21 @@ import { Adsense } from "@ctrl/react-adsense"
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: theme.spacing(14, "auto")
-  },
-  button: {
-    marginLeft: "10px",
-    marginBottom: "10px"
-  },
-  paper: {
-    position: "absolute",
-    left: "2%",
-    width: 320,
-    backgroundColor: theme.palette.background.paper,
-    boxShadow: theme.shadows[ 5 ],
-    padding: theme.spacing(2, 4, 3),
-    "&:focus": {
-      outline: "none"
-    },
-    [ theme.breakpoints.up("sm") ]: {
-      width: 420
-    },
-    [ theme.breakpoints.up("md") ]: {
-      width: 720
-    },
-    [ theme.breakpoints.up("lg") ]: {
-      width: 1200
-    }
   }
 }))
 
-const IndexPage = ({ data }) => {
+const GenrePage = ({ data }) => {
   const classes = useStyles()
 
   return (
     <Layout>
       <SEO
-        title="Worldwide Online Radio Streams On Alphabetical Order"
+        title="Worldwide Online Radio Streams Sorted On Genres"
         lang={ "en" }
         description="Listen to live online radio streams from thousands of radio stations worldwide.  Listen to your favorite music online for free."
         keywords="internet radio, online radio, music, radio stations, online radio stations, internet radio stations, online music, net radio, radio internet, internetradio, internet-radio"
       />
+
       <Container maxWidth={ "xl" } className={ classes.root }>
         <Grid container={ true } spacing={ 4 } direction={ "row" }
               justify={ "center" } alignItems={ "flex-start" }>
@@ -64,10 +41,10 @@ const IndexPage = ({ data }) => {
         <Grid container={ true } spacing={ 4 } direction={ "row" }
               justify={ "flex-start" } alignItems={ "flex-start" }>
           { data.allContentfulRadioStation.group.map((node, index) => {
-            const alphabetic = node.edges[ 0 ].node.stationAlphabetic.title
+            const category = node.edges[ 0 ].node.stationCategory.categoryTitle
             return (
               <Grid item xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } key={ index }>
-                <CategorySection data={ node } title={ alphabetic }/>
+                <CategorySection data={ node } title={ category }/>
               </Grid>
             )
           }) }
@@ -78,12 +55,12 @@ const IndexPage = ({ data }) => {
   )
 }
 
-export default IndexPage
+export default GenrePage
 
 export const IndexQuery = graphql`
     query {
         allContentfulRadioStation(sort: {fields: stationTitle, order: ASC}, filter: {node_locale: {eq: "en"}}) {
-            group(field: stationAlphabetic___title) {
+            group(field: stationCategory___id) {
                 edges {
                     node {
                         stationTitle
@@ -99,12 +76,8 @@ export const IndexQuery = graphql`
                         stationCategory {
                             categoryTitle
                         }
-                        stationAlphabetic {
-                            title
-                        }
                     }
                 }
-                fieldValue
             }
         }
     }
