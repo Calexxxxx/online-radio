@@ -64,11 +64,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Online Radio Streams`,
+        short_name: `O.R.S`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#1e7fab`,
+        theme_color: `#1e7fab`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`
       }
