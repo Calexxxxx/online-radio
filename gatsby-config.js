@@ -82,8 +82,7 @@ module.exports = {
         defer: true,
         cookieDomain: "https://onlineradiostreams.net"
       }
-    },
-    `gatsby-plugin-offline`
-
+    }
+    // `gatsby-plugin-offline` temp disable
   ]
 }
